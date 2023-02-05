@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIView {
+public extension UIView {
   final func squircle(_ cornerRadius: CGFloat = 10) {
     if #available(iOS 13.0, *) {
       layer.cornerCurve = .continuous
