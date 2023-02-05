@@ -17,4 +17,10 @@ struct MainThread {
       }
     }
   }
+  
+  static func delay(deadline: DispatchTime, execute: @escaping (() -> Void)) {
+    DispatchQueue.main.asyncAfter(deadline: deadline) {
+      execute()
+    }
+  }
 }
