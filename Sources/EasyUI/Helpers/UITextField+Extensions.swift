@@ -7,8 +7,8 @@
 
 import UIKit
 
-public extension UITextField {
-  final func showKeyboardDismissButton(_ image: UIImage? = nil) {
+extension UITextField {
+  public final func showKeyboardDismissButton(_ image: UIImage? = nil) {
     let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
     let doneButton: UIBarButtonItem
     if let image = image {
@@ -28,8 +28,8 @@ public extension UITextField {
     }
     
     var toolBarItems = [UIBarButtonItem]()
-    toolBarItems.append(doneButton)
     toolBarItems.append(flexSpace)
+    toolBarItems.append(doneButton)
     
     let doneToolbar = UIToolbar()
     doneToolbar.isTranslucent = false

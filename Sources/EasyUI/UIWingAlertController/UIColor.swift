@@ -43,4 +43,8 @@ extension UIColor {
 
     self.init(red: r, green: g, blue: b, alpha: a)
   }
+  
+  public static var defaultBorderColor: UIColor {
+    UIColor(hex: "E8EDF0")
+  }
 }

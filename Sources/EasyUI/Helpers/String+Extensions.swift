@@ -7,15 +7,15 @@
 
 import UIKit
 
-public extension String {
-  var isNotEmpty: Bool { !isEmpty }
+extension String {
+  public var isNotEmpty: Bool { !isEmpty }
   
-  var doubleValue: Double {
+  public var doubleValue: Double {
       let value = replacingOccurrences(of: ",", with: ".")
       return Double(value) ?? 0.0
   }
   
-  var isPhoneNumber: Bool {
+  public var isPhoneNumber: Bool {
     do {
       let detector = try NSDataDetector(types: NSTextCheckingResult.CheckingType.phoneNumber.rawValue)
       let matches = detector.matches(in: self, options: [], range: NSMakeRange(0, self.count))
@@ -29,11 +29,11 @@ public extension String {
     }
   }
   
-  var formattedPhoneNumber: String {
+  public var formattedPhoneNumber: String {
     applyPatternOnNumbers(pattern: "### ### ####", replacmentCharacter: "#")
   }
   
-  func applyPatternOnNumbers(pattern: String, replacmentCharacter: Character) -> String {
+  public func applyPatternOnNumbers(pattern: String, replacmentCharacter: Character) -> String {
     var pureNumber = self.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
     for index in 0 ..< pattern.count {
       guard index < pureNumber.count else { return pureNumber }
@@ -45,7 +45,7 @@ public extension String {
     return pureNumber
   }
   
-  func replaceCommaWithDot(using string: String, in range: NSRange) -> Bool {
+  public func replaceCommaWithDot(using string: String, in range: NSRange) -> Bool {
     let oldText = replacingOccurrences(of: ",", with: ".")
     if let r = Range(range, in: oldText) {
       let newString = string.replacingOccurrences(of: ",", with: ".")
@@ -66,7 +66,7 @@ public extension String {
     }
   }
   
-  func toUniversalNumber() -> String {
+  public func toUniversalNumber() -> String {
     let formatter = NumberFormatter()
     formatter.locale = Locale(identifier: "km-KH")
     formatter.numberStyle = .decimal

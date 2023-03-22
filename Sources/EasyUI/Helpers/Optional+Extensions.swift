@@ -12,6 +12,7 @@ public extension Optional where Wrapped == String {
     switch self {
     case .some(let value):
       return value
+      
     case .none:
       return ""
     }
@@ -23,6 +24,7 @@ public extension Optional {
     switch self {
     case .some(let some):
       return some
+      
     case .none:
       return value
     }
