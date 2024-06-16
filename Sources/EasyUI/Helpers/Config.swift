@@ -7,7 +7,7 @@
 
 import UIKit
 
-public protocol Config { }
+protocol Config { }
 extension NSObject: Config { }
 
 extension Config where Self: NSObject {
@@ -18,7 +18,7 @@ extension Config where Self: NSObject {
   ///       $0.textColor = .black
   ///       $0.text = "Hi There!"
   ///     }
-  public func build(_ closure: (Self) -> Void) -> Self {
+  func build(_ closure: (Self) -> Void) -> Self {
     closure(self)
     return self
   }
